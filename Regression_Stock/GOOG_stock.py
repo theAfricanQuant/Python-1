@@ -15,10 +15,6 @@ import matplotlib.pyplot as plt
 df = pd.read_csv('GOOG_30_days.csv')
 df.head(7)
 
-#Create the lists / X and Y data sets
-dates = []
-prices = []
-
 #Get the number of rows and columns in the data set
 df.shape
 
@@ -37,14 +33,8 @@ df_dates = df.loc[:, 'Date']
 #Get all of the rows from the Open Column
 df_open = df.loc[:, 'Open']
 
-#Create the independent data set X
-for date in df_dates:
-  dates.append( [int(date.split('-')[2])])
-  
-#Create the dependent data se 'y'
-for open_price in df_open:
-  prices.append(float(open_price))
-
+dates = [[int(date.split('-')[2])] for date in df_dates]
+prices = [float(open_price) for open_price in df_open]
 #See what days were recorded
 print(dates)
 

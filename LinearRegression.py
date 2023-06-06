@@ -8,11 +8,11 @@ TRAIN_SET_COUNT = 100
 
 
 # Create an empty list of the input training set 'X' and create an empty list of the output for each training set 'Y'
-TRAIN_INPUT = list()
-TRAIN_OUTPUT= list()
+TRAIN_INPUT = []
+TRAIN_OUTPUT = []
 
 #Create and append a randomly generated data set to the input and output
-for i in range(TRAIN_SET_COUNT):
+for _ in range(TRAIN_SET_COUNT):
     a = randint(0, TRAIN_SET_LIMIT)
     b = randint(0, TRAIN_SET_LIMIT)
     c = randint(0, TRAIN_SET_LIMIT)
@@ -29,4 +29,4 @@ outcome = predictor.predict(X=X_TEST) # Predict the ouput of the test data using
 
 coefficients = predictor.coef_  #The estimated coefficients for the linear regression problem.
 
-print('Outcome: {} \n Coefficients: {}'.format(outcome, coefficients))
+print(f'Outcome: {outcome} \n Coefficients: {coefficients}')

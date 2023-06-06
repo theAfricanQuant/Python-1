@@ -116,7 +116,7 @@ print(sorted_similar_movies)
 #Create a loop to print the first 5 entries from the sorted similar movies list
 
 i=0
-print("Top 5 similar movies to "+movie_user_likes+" are:")
+print(f"Top 5 similar movies to {movie_user_likes} are:")
 for element in sorted_similar_movies:
     print(get_title_from_index(element[0]), ' similarity score = ', sorted_similar_movies[i][1] * 100)
     i=i+1
@@ -126,7 +126,7 @@ for element in sorted_similar_movies:
 #Create a loop to print the first 5 entries from the sorted similar movies list
 
 i=0
-print("Top 5 similar movies to "+movie_user_likes+" are:")
+print(f"Top 5 similar movies to {movie_user_likes} are:")
 for i in range( len(sorted_similar_movies)):
     print(get_title_from_index(sorted_similar_movies[i][0]), ' similarity score = ', sorted_similar_movies[i][1] * 100)
     i=i+1

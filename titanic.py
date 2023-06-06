@@ -211,14 +211,14 @@ model = models(X_train,Y_train)
 #Classification accuracy is the ratio of correct predictions to total predictions made.
 from sklearn.metrics import confusion_matrix
 for i in range(len(model)):
-  cm = confusion_matrix(Y_test, model[i].predict(X_test))
+    cm = confusion_matrix(Y_test, model[i].predict(X_test))
 
-  #extracting true_positives, false_positives, true_negatives, false_negatives
-  TN, FP, FN, TP = confusion_matrix(Y_test, model[i].predict(X_test)).ravel()
+    #extracting true_positives, false_positives, true_negatives, false_negatives
+    TN, FP, FN, TP = confusion_matrix(Y_test, model[i].predict(X_test)).ravel()
 
-  print(cm)
-  print('Model[{}] Testing Accuracy = "{} !"'.format(i,  (TP + TN) / (TP + TN + FN + FP)))
-  print()# Print a new line
+    print(cm)
+    print(f'Model[{i}] Testing Accuracy = "{(TP + TN) / (TP + TN + FN + FP)} !"')
+    print()# Print a new line
 
 #Get the importance of the features
 forest = model[6]

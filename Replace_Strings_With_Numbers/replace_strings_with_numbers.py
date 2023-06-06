@@ -1,14 +1,9 @@
 #import pandas library
 import pandas as pd
 
-#Create a file handler for our csv file in read mode
-file_handler = open("car.csv", "r")
-
-#Create a Pandas DataFrame using read_csv function that reads from a csv file
-data = pd.read_csv(file_handler, sep=",")
-
-#close file_handler
-file_handler.close()
+with open("car.csv", "r") as file_handler:
+    #Create a Pandas DataFrame using read_csv function that reads from a csv file
+    data = pd.read_csv(file_handler, sep=",")
 
 # traverse through the buying column of dataframe and write the values where conditions match
 # buying values: low, med, high, vhigh

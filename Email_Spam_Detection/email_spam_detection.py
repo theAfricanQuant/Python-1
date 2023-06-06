@@ -56,12 +56,12 @@ def process_text(text):
     #1
     nopunc = [char for char in text if char not in string.punctuation]
     nopunc = ''.join(nopunc)
-    
-    #2
-    clean_words = [word for word in nopunc.split() if word.lower() not in stopwords.words('english')]
-    
-    #3
-    return clean_words
+
+    return [
+        word
+        for word in nopunc.split()
+        if word.lower() not in stopwords.words('english')
+    ]
 
 #Show the Tokenization 
 df['text'].head().apply(process_text)

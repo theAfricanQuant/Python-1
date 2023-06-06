@@ -15,10 +15,6 @@ import matplotlib.pyplot as plt
 df = pd.read_csv('FB_30_days.csv')
 df.head(7)
 
-#Create the lists / X and y data set
-dates = []
-prices = []
-
 #Get the number of rows and columns in the data set
 df.shape
 
@@ -32,14 +28,8 @@ print(df.shape)
 df_dates = df.loc[:,'Date'] # Get all of the rows from the Date column
 df_open = df.loc[:,'Open'] #Get all of the rows from the Open column
 
-#Create the independent data set 'X' as dates
-for date in df_dates:
-  dates.append( [int(date.split('-')[2])] )
-  
-#Create the dependent data set 'y' as prices
-for open_price in df_open:
-  prices.append(float(open_price))
-
+dates = [[int(date.split('-')[2])] for date in df_dates]
+prices = [float(open_price) for open_price in df_open]
 #See what days were recoreded in teh data set
 print(dates)
 

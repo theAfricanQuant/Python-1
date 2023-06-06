@@ -14,7 +14,7 @@ fashion_mnist = keras.datasets.fashion_mnist
 #View a training image
 img_index = 2 # <<<<<  You can update this value to look at other images
 img = train_images[img_index]
-print("Image Label: " + str(train_labels[img_index]))
+print(f"Image Label: {str(train_labels[img_index])}")
 plt.imshow(img)
 
 #Print the shape 

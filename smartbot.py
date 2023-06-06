@@ -137,33 +137,32 @@ def response(user_response):
   #print(score)
 
   #If the variable 'score' is 0 then their is no text similar to the users response
-  if(score == 0):
-    robo_response = robo_response+"I apologize, I don't understand."
+  if (score == 0):
+    robo_response += "I apologize, I don't understand."
   else:
-    robo_response = robo_response+sent_tokens[idx]
-  
+    robo_response += sent_tokens[idx]
+
   #Print the chat bot response
   #print(robo_response)
-  
+
   #Remove the users response from the sentence tokens list
   sent_tokens.remove(user_response)
-  
+
   return robo_response
 
 flag = True
 print("DOCBot: I am Doctor Bot or DOCBot for short. I will answer your queries about Chronic Kidney Disease. If you want to exit, type Bye!")
-while(flag == True):
+while flag:
   user_response = input()
   user_response = user_response.lower()
-  if(user_response != 'bye'):
-    if(user_response == 'thanks' or user_response =='thank you'):
-      flag=False
-      print("DOCBot: You are welcome !")
-    else:
-      if(greeting(user_response) != None):
-        print("DOCBot: "+greeting(user_response))
-      else:
-        print("DOCBot: "+response(user_response))       
-  else:
+  if user_response == 'bye':
     flag = False
     print("DOCBot: Chat with you later !")
+
+  elif user_response in ['thanks', 'thank you']:
+    flag=False
+    print("DOCBot: You are welcome !")
+  elif greeting(user_response) is None:
+    print(f"DOCBot: {response(user_response)}")
+  else:
+    print(f"DOCBot: {greeting(user_response)}")

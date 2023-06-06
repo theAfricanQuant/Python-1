@@ -146,14 +146,14 @@ model = models(X_train,Y_train)
 from sklearn.metrics import confusion_matrix
 for i in range(len(model)):
   cm = confusion_matrix(Y_test, model[i].predict(X_test))
-  
+
   TN = cm[0][0]
   TP = cm[1][1]
   FN = cm[1][0]
   FP = cm[0][1]
-  
+
   print(cm)
-  print('Model[{}] Testing Accuracy = "{}!"'.format(i,  (TP + TN) / (TP + TN + FN + FP)))
+  print(f'Model[{i}] Testing Accuracy = "{(TP + TN) / (TP + TN + FN + FP)}!"')
   print()# Print a new line
 
 #Show other ways to get the classification accuracy & other metrics 
@@ -169,7 +169,7 @@ for i in range(len(model)):
   print( accuracy_score(Y_test, model[i].predict(X_test)))
   print()#Print a new line
 
-    
+
 #Print Prediction of Random Forest Classifier model
 pred = model[6].predict(X_test)
 print(pred)

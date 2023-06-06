@@ -36,33 +36,33 @@ BITCOIN_PRICE_THRESHOLD = 10000  # A threshold set to whatever you like
 
 def main():
   
-  #Set last_price to -1 to indicate the last price hasn't been recorded yet
-  last_price = -1
-  
-  while True:
-    
+    #Set last_price to -1 to indicate the last price hasn't been recorded yet
+    last_price = -1
+
     crypto = 'bitcoin'
-    price = get_latest_crypto_price(crypto)
-   
-    #You can use the following variables to get specific datetime
-    #year = datetime.now().year
-    #month = datetime.now().month
-    #day = datetime.now().day
-    #hour = datetime.now().hour
-    #minute = datetime.now().minute
-    #second = datetime.now().second
-    #microsecond = datetime.now().microsecond
-    
-    now = datetime.now()
-    now.strftime("%Y-%m-%d %H:%M")#Returns format (YYYY-mm-DDTHH:MM:SS.MS)
-    
-    #Check if the crypto currency price is less than your threshold
-    if price < BITCOIN_PRICE_THRESHOLD:
-      print('The Crypto is lower than your threshold')
-    
-    #Print the price of bitcoin only if the current price is different from the last price
-    if price != last_price:
-      print(now.isoformat() , ' Bitcoin price = ',price)
-      last_price = price #update last_price to be the current price
+    while True:
+
+        price = get_latest_crypto_price(crypto)
+
+        #You can use the following variables to get specific datetime
+        #year = datetime.now().year
+        #month = datetime.now().month
+        #day = datetime.now().day
+        #hour = datetime.now().hour
+        #minute = datetime.now().minute
+        #second = datetime.now().second
+        #microsecond = datetime.now().microsecond
+
+        now = datetime.now()
+        now.strftime("%Y-%m-%d %H:%M")#Returns format (YYYY-mm-DDTHH:MM:SS.MS)
+
+        #Check if the crypto currency price is less than your threshold
+        if price < BITCOIN_PRICE_THRESHOLD:
+          print('The Crypto is lower than your threshold')
+
+        #Print the price of bitcoin only if the current price is different from the last price
+        if price != last_price:
+          print(now.isoformat() , ' Bitcoin price = ',price)
+          last_price = price #update last_price to be the current price
 
 main()

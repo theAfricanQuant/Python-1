@@ -20,10 +20,10 @@ def recordAudio():
   # Speech recognition using Google Speech Recognition
   data = ""
   try:
-      # Uses the default API key
-      # To use another API key: `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
-      data = r.recognize_google(audio)
-      print("You said: " + data)
+    # Uses the default API key
+    # To use another API key: `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
+    data = r.recognize_google(audio)
+    print(f"You said: {data}")
   except sr.UnknownValueError:
       print("Google Speech Recognition could not understand audio")
   except sr.RequestError as e:
